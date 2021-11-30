@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_filters',
     'core'
 ]
 
@@ -45,10 +44,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'api.urls'
 
@@ -131,7 +128,7 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# # Database Postgres Heroku
+# Database Postgres Heroku
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
@@ -157,7 +154,6 @@ FIREBASE_ADMIN_CERT = {
     'client_x509_cert_url': config('CLIENT_X509_CERT_URL', default='', cast=str)
 }
 
-APPEND_SLASH=False
 
 # Configurations Rest
 REST_FRAMEWORK = {
@@ -169,7 +165,6 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.BasicAuthentication',
         
     # ]
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 django_heroku.settings(locals())

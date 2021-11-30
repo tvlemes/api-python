@@ -5,6 +5,8 @@ from core.views.user_view import UserViewSet
 from core.views.experience_view import ExperienceViewSet
 from core.views.favorite_view import FavoriteView
 from core.views.course_view import CourseViewSet
+from api.settings import settings
+from django.conf.urls.static import static  
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -19,4 +21,4 @@ urlpatterns = [
 
     # Others URL's
     path('', include(router.urls)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-class FavoritesSerializer(serializers.Serializer):
+class FavoriteSerializer(serializers.Serializer):
     id = serializers.CharField(max_length=100, read_only=True)
     name = serializers.CharField()
     url_name = serializers.CharField()

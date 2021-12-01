@@ -5,7 +5,6 @@ import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_ROOT = BASE_DIR/'staticfiles'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -153,19 +152,6 @@ FIREBASE_ADMIN_CERT = {
     'token_uri': config('TOKEN_URI', default='', cast=str),
     'auth_provider_x509_cert_url': config('AUTH_PROVIDER_X509_CERT_URL', default='', cast=str),
     'client_x509_cert_url': config('CLIENT_X509_CERT_URL', default='', cast=str)
-}
-
-
-# Configurations Rest
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    #     'rest_framework.authentication.SessionAuthentication',
-    #     'rest_framework.authentication.BasicAuthentication',
-        
-    # ]
 }
 
 django_heroku.settings(locals())

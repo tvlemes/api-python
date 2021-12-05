@@ -4,7 +4,7 @@ from core.config_api.firebase_connection import FirebaseConnection
 
 class ExperienceCrud(FirebaseConnection):
     client = FirebaseConnection
-    
+
     # INSERT EXPERIENCE
     def create(self, data):
         """Create todo in firestore database"""

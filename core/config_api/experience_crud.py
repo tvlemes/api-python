@@ -16,7 +16,7 @@ class ExperienceCrud(FirebaseConnection):
             'occupation': data['occupation'],
             'briefsummary': data['briefsummary'],
             'activities': data['activities'],
-            'tags': data['tags'].split(),
+            'tags': data['tags'].upper().split(),
             'start_date': data['start_date'],
             'departure_date': data['departure_date'],
         }
@@ -32,7 +32,7 @@ class ExperienceCrud(FirebaseConnection):
             'occupation': data['occupation'],
             'briefsummary': data['briefsummary'],
             'activities': data['activities'],
-            'tags': data['tags'].split(),
+            'tags': data['tags'].upper().split(),
             'start_date': data['start_date'],
             'departure_date': data['departure_date'],
         }

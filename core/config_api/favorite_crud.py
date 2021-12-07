@@ -15,7 +15,7 @@ class FavoriteCrud(FirebaseConnection):
             'url_name': data['url_name'],
             'url_image': data['url_image'],
             'briefsummary': data['briefsummary'],
-            'tags': data['tags'].split(),
+            'tags': data['tags'].upper().split(),
             'favorites': data['favorites'],
         }
         doc_ref.set(data)
@@ -30,7 +30,7 @@ class FavoriteCrud(FirebaseConnection):
             'url_name': data['url_name'],
             'url_image': data['url_image'],
             'briefsummary': data['briefsummary'],
-            'tags': data['tags'].split(),
+            'tags': data['tags'].upper().split(),
             'favorites': data['favorites'],
         }
         doc_ref.update(data)

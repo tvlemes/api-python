@@ -2,7 +2,7 @@ import firebase_admin
 from core.config_api.firebase_connection import FirebaseConnection
 
 
-class CourseCrud(FirebaseConnection):
+class TutorialCrud(FirebaseConnection):
     client = FirebaseConnection
     
     # INSERT EXPERIENCE
@@ -13,15 +13,12 @@ class CourseCrud(FirebaseConnection):
         data = {
             'id': id,
             'name': data['name'],
-            'institution': data['institution'],
-            'workload': data['workload'],
-            'briefsummary': data['briefsummary'],
-            'content': data['content'],
-            'start_date': data['start_date'],
-            'departure_date': data['departure_date'],
-            'url_image': data['url_image'],
+            'technology': data['technology'],
+            'description': data['description'],
+            'markdown': data['markdown'],
             'tags': data['tags'].upper().split(),
         }
+
         doc_ref.set(data)
         
     # UPDATE EXPERIENCE BY ID
@@ -31,13 +28,9 @@ class CourseCrud(FirebaseConnection):
         data = {
             'id': id,
             'name': data['name'],
-            'institution': data['institution'],
-            'workload': data['workload'],
-            'briefsummary': data['briefsummary'],
-            'content': data['content'],
-            'start_date': data['start_date'],
-            'departure_date': data['departure_date'],
-            'url_image': data['url_image'],
+            'technology': data['technology'],
+            'description': data['description'],
+            'markdown': data['markdown'],
             'tags': data['tags'].upper().split(),
         }
         doc_ref.update(data)

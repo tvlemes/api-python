@@ -1,25 +1,25 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from core.config_api.technology_crud import TechnologyCrud
-from core.serializers.technology_serializer import TechnologySerializer
+from core.config_api.tutorial_crud import TutorialCrud
+from core.serializers.tutorial_serializer import TutorialSerializer
 
-class TechnologyViewSet(viewsets.ViewSet):
-    client = TechnologyCrud('collection_technologias')
+class TutorialViewSet(viewsets.ViewSet):
+    client = TutorialCrud('collection_tutorials')
 
     def list(self, request):
         r = self.client.all()
-        serializer = TechnologySerializer(r, many=True)
+        serializer = TutorialSerializer(r, many=True)
         return Response(serializer.data)
     
     def retrieve(self, request, pk=None):
         resumo = self.client.get_by_id(pk)
 
         if resumo:
-            serializer = TechnologySerializer(resumo)
+            serializer = TutorialSerializer(resumo)
             return Response(serializer.data)
 
     def create(self, request):
-        serializer = TechnologySerializer(data=request.data)
+        serializer = TutorialSerializer(data=request.data)
         serializer.is_valid()
 
         self.client.create(serializer.data)
@@ -31,7 +31,7 @@ class TechnologyViewSet(viewsets.ViewSet):
 
     def update(self, request, *args, **kwargs):
         pk = kwargs.get('pk')
-        serializer = TechnologySerializer(data=request.data)
+        serializer = TutorialSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         self.client.update(pk, serializer.data)
